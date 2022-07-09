@@ -74,28 +74,28 @@
       
       <div class="swiper-images w-full swiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide" id="slider1">
+          <div class="swiper-slide" id="78fbc6ec-c628-47a0-a7f6-08da615adb97">
             <picture>
               <source media="(min-width:650px)" srcset="./assets/images/slider-2-desktop.jpeg">
               <img  src="./assets/images/slider-2-mobile.jpeg" alt="">
             </picture>
           </div>
 
-          <div class="swiper-slide" id="slider2">
+          <div class="swiper-slide" id="fb2b523d-9a3a-4791-a7f7-08da615adb97">
             <picture>
               <source media="(min-width:650px)" srcset="./assets/images/slider-3-desktop.jpeg">
-              <img class="sliders" id="slider2" src="./assets/images/slider-3-mobile.jpeg" alt="">
+              <img class="sliders" src="./assets/images/slider-3-mobile.jpeg" alt="">
             </picture>
           </div>
 
-          <div class="swiper-slide" id="slider3">
+          <div class="swiper-slide" id="bd165519-e9a2-4a07-a7f8-08da615adb97">
             <picture>
               <source media="(min-width:650px)" srcset="./assets/images/slider-1-desktop.jpg">
               <img src="./assets/images/slider-1-mobile.jpeg" alt="">
             </picture>
           </div>
 
-          <div class="swiper-slide" id="slider4">
+          <div class="swiper-slide" id="f718b3e1-6d28-4701-a7f9-08da615adb97">
             <picture>
               <source media="(min-width:650px)" srcset="./assets/images/slider-4-desktop.jpeg">
               <img  src="./assets/images/slider-4-mobile.jpeg" alt="">
@@ -147,7 +147,7 @@
                       type="button"
                       class="app-resume-body-card cardButton"
                       onclick="toggle(this, 'THIS')"
-                      id="card1"
+                      id="d078b478-9a6d-4420-a7fa-08da615adb97"
                     >
                       <div class="app-resume-body-card-head">
                         <div class="flex gap-2">
@@ -176,7 +176,7 @@
                       type="button"
                       class="app-resume-body-card cardButton"
                       onclick="toggle(this, 'THIS')"
-                      id="card2"
+                      id="df581972-8c5e-4d95-a7fb-08da615adb97"
                     >
                       <div class="app-resume-body-card-head">
                         <div class="flex gap-2">
@@ -221,7 +221,7 @@
                       type="button"
                       class="app-resume-body-card cardButton"
                       onclick="toggle(this, 'THIS')"
-                      id="card3"
+                      id="4473e675-6ddd-42c1-a7fc-08da615adb97"
                     >
                       <div class="app-resume-body-card-head">
                         <div class="flex gap-2">
@@ -250,7 +250,7 @@
                       type="button"
                       class="app-resume-body-card cardButton"
                       onclick="toggle(this, 'THIS')"
-                      id="card4"
+                      id="b54cc543-1eca-4fab-a7fd-08da615adb97"
                     >
                       <div class="app-resume-body-card-head">
                         <div class="flex gap-2">
@@ -345,7 +345,7 @@
                       type="button"
                       class="app-resume-body-card cardButton"
                       onclick="toggle(this, 'THIS')"
-                      id="card5"
+                      id="efe61d5e-7c2c-49ed-a7fe-08da615adb97"
                     >
                       <div class="app-resume-body-card-head">
                         <div class="flex gap-2">
@@ -374,7 +374,7 @@
                       type="button"
                       class="app-resume-body-card cardButton"
                       onclick="toggle(this, 'THIS')"
-                      id="card6"
+                      id="54ab94ae-e41b-45e0-a7ff-08da615adb97"
                     >
                       <div class="app-resume-body-card-head">
                         <div class="flex gap-2">
@@ -419,7 +419,7 @@
                       type="button cardButton" 
                       class="app-resume-body-card cardButton"
                       onclick="toggle(this, 'THIS')"
-                      id="card7"
+                      id="b94564e2-5a08-47da-a800-08da615adb97"
                     >
                       <div class="app-resume-body-card-head">
                         <div class="flex gap-2">
@@ -448,7 +448,7 @@
                       type="button"
                       class="app-resume-body-card cardButton"
                       onclick="toggle(this, 'THIS')"
-                      id="card8"
+                      id="1cdc0b89-ca61-4404-a801-08da615adb97"
                     >
                       <div class="app-resume-body-card-head">
                         <div class="flex gap-2">
@@ -917,33 +917,35 @@
 
 <script>
 
-    $('.swiper-slide, .cardButton').unbind('click').bind("click", function() { 
-        var id = $(this).attr('id');
+  $('.swiper-slide, .cardButton').unbind('click').bind("click", function() { 
+      var id = $(this).attr('id');
 
-        if(id) {
-          var data = {cpf:"336.696.790-06", bannerId:id};
-
-          console.log(data);
-
-          $.ajax({
-                  type: "POST",
-                  url: "https://apimhiper.azure-api.net/echo/resource",
-                  data: JSON.stringify(data),// now data come in this function
-                  contentType: "application/json; charset=utf-8",
-                  crossDomain: true,
-                  dataType: "json",
-                  success: function (data, status, jqXHR) {
-                      alert("success");// write success in " "
-                      console.log(data);
-                  },
-
-                  error: function (jqXHR, status) {
-                      // error handler
-                      console.log(jqXHR);
-                      alert('fail' + status.code);
-                  }
-          });
+      if(id) {
+        var data = {
+          "cpf": "946.522.140-65",
+          "idDisplay": id,
+          "idInvoice": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
         }
-    });
+
+        console.log(data);
+
+        $.ajax({
+                type: "POST",
+                url: "https://apimhiper.azure-api.net/v1/ProfileActivity",
+                data: JSON.stringify(data),// now data come in this function
+                contentType: "application/json; charset=utf-8",
+                crossDomain: true,
+                success: function (data, status, jqXHR) {
+                    console.log("success");// write success in " "
+                },
+
+                error: function (jqXHR, status) {
+                    // error handler
+                    console.log(jqXHR);
+                    alert('fail' + status.code);
+                }
+        });
+      }
+  });
 
 </script>
