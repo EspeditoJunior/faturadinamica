@@ -143,8 +143,9 @@
                   <div class="app-resume-body-cards">
                     <button 
                       type="button"
-                      class="app-resume-body-card"
+                      class="app-resume-body-card cardButton"
                       onclick="toggle(this, 'THIS')"
+                      id="card1"
                     >
                       <div class="app-resume-body-card-head">
                         <div class="flex gap-2">
@@ -171,8 +172,9 @@
         
                     <button 
                       type="button"
-                      class="app-resume-body-card"
+                      class="app-resume-body-card cardButton"
                       onclick="toggle(this, 'THIS')"
+                      id="card2"
                     >
                       <div class="app-resume-body-card-head">
                         <div class="flex gap-2">
@@ -215,8 +217,9 @@
         
                     <button 
                       type="button"
-                      class="app-resume-body-card"
+                      class="app-resume-body-card cardButton"
                       onclick="toggle(this, 'THIS')"
+                      id="card3"
                     >
                       <div class="app-resume-body-card-head">
                         <div class="flex gap-2">
@@ -243,8 +246,9 @@
         
                     <button 
                       type="button"
-                      class="app-resume-body-card"
+                      class="app-resume-body-card cardButton"
                       onclick="toggle(this, 'THIS')"
+                      id="card4"
                     >
                       <div class="app-resume-body-card-head">
                         <div class="flex gap-2">
@@ -337,8 +341,9 @@
                   <div class="app-resume-body-cards">
                     <button 
                       type="button"
-                      class="app-resume-body-card"
+                      class="app-resume-body-card cardButton"
                       onclick="toggle(this, 'THIS')"
+                      id="card5"
                     >
                       <div class="app-resume-body-card-head">
                         <div class="flex gap-2">
@@ -365,8 +370,9 @@
         
                     <button 
                       type="button"
-                      class="app-resume-body-card"
+                      class="app-resume-body-card cardButton"
                       onclick="toggle(this, 'THIS')"
+                      id="card6"
                     >
                       <div class="app-resume-body-card-head">
                         <div class="flex gap-2">
@@ -408,9 +414,10 @@
                     </button>
         
                     <button 
-                      type="button"
-                      class="app-resume-body-card"
+                      type="button cardButton" 
+                      class="app-resume-body-card cardButton"
                       onclick="toggle(this, 'THIS')"
+                      id="card7"
                     >
                       <div class="app-resume-body-card-head">
                         <div class="flex gap-2">
@@ -437,8 +444,9 @@
         
                     <button 
                       type="button"
-                      class="app-resume-body-card"
+                      class="app-resume-body-card cardButton"
                       onclick="toggle(this, 'THIS')"
+                      id="card8"
                     >
                       <div class="app-resume-body-card-head">
                         <div class="flex gap-2">
@@ -907,37 +915,33 @@
 
 <script>
 
-    $('.swiper-slide').click(function() { 
+    $('.swiper-slide, .cardButton').unbind('click').bind("click", function() { 
         var id = $(this).attr('id');
 
-        var data = {cpf:"336.696.790-06", bannerId:id};
+        if(id) {
+          var data = {cpf:"336.696.790-06", bannerId:id};
 
-        console.log(data);
+          console.log(data);
 
-        $.ajax({
-                type: "POST",
-                url: "http://example.com",
-                data: JSON.stringify(data),// now data come in this function
-                contentType: "application/json; charset=utf-8",
-                crossDomain: true,
-                dataType: "json",
-                success: function (data, status, jqXHR) {
-                    alert("success");// write success in " "
-                    console.log(data);
-                },
+          $.ajax({
+                  type: "POST",
+                  url: "https://apimhiper.azure-api.net/echo/resource",
+                  data: JSON.stringify(data),// now data come in this function
+                  contentType: "application/json; charset=utf-8",
+                  crossDomain: true,
+                  dataType: "json",
+                  success: function (data, status, jqXHR) {
+                      alert("success");// write success in " "
+                      console.log(data);
+                  },
 
-                error: function (jqXHR, status) {
-                    // error handler
-                    console.log(jqXHR);
-                    alert('fail' + status.code);
-                }
-        });
-
-
+                  error: function (jqXHR, status) {
+                      // error handler
+                      console.log(jqXHR);
+                      alert('fail' + status.code);
+                  }
+          });
+        }
     });
-
-
-
-
 
 </script>
