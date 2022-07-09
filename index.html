@@ -551,7 +551,6 @@
             <h3>
               Mais detalhes
             </h3>
-
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29302 7.29303C5.48055 7.10556 5.73486 7.00024 6.00002 7.00024C6.26518 7.00024 6.51949 7.10556 6.70702 7.29303L10 10.586L13.293 7.29303C13.4816 7.11087 13.7342 7.01008 13.9964 7.01236C14.2586 7.01463 14.5094 7.1198 14.6948 7.30521C14.8802 7.49062 14.9854 7.74143 14.9877 8.00363C14.99 8.26583 14.8892 8.51843 14.707 8.70703L10.707 12.707C10.5195 12.8945 10.2652 12.9998 10 12.9998C9.73486 12.9998 9.48055 12.8945 9.29302 12.707L5.29302 8.70703C5.10555 8.5195 5.00023 8.26519 5.00023 8.00003C5.00023 7.73487 5.10555 7.48056 5.29302 7.29303Z" fill="#9CA3AF"/>
             </svg>
@@ -920,10 +919,17 @@
   $('.swiper-slide, .cardButton').unbind('click').bind("click", function() { 
       var id = $(this).attr('id');
 
+      var date = new Date();
+      date.setHours(date.getHours() - 3);
+
+      // now you can get the string
+      var isodate = date.toISOString();
+
       if(id) {
         var data = {
           "cpf": "946.522.140-65",
           "idDisplay": id,
+          "date": isodate,
           "idInvoice": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
         }
 
@@ -931,7 +937,7 @@
 
         $.ajax({
                 type: "POST",
-                url: "https://apimhiper.azure-api.net/v1/ProfileActivity",
+                url: "https://apimhiper.azure-api.net/v1/ProfileActivity/add",
                 data: JSON.stringify(data),// now data come in this function
                 contentType: "application/json; charset=utf-8",
                 crossDomain: true,
